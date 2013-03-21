@@ -58,7 +58,7 @@
 
             // Add number labels to each space
 
-            function labelx(d,i){console.log(i); return spacex(d,i) + spacew/2;}
+            function labelx(d,i){return spacex(d,i) + spacew/2;}
             function labely(d,i){return spacey(d,i) + spaceh/2 + boardfontsize/3;}
 
             board.selectAll("text")
@@ -116,33 +116,33 @@
             // Loop through JSON imported data
             var colors = ["grey", "yellow", "light-blue", "pink", "dark-blue", "green", "red"]
             d3.json("../data/ng-squares-2007.json", function(json_input) {
-            	console.log("json");
-            	console.log(json_input);
-
                 var reordered_json = new Array(64);
             	
 	            for (var i=0; i<8;i++) {
 	            	for (j=0; j<8; j++) {
 	            		if(j % 2 == 0) {
-	            			console.log((i*8+j) + " " + (j*8+i) + " even");
+	            			//console.log((i*8+j) + " " + (j*8+i) + " even");
 	            			reordered_json[j*8+i] = json_input[i*8+j];
 	            		} else {
-	            			console.log((i*8+j) + " " +((j+1)*8-i-1));
+	            			//console.log((i*8+j) + " " +((j+1)*8-i-1));
 	            			reordered_json[(j+1)*8-(i+1)] = json_input[i*8+j];
 	            		}
 	            	}
 	            }
 	            
+	            var total_wins = 0;
 	            rects.data(reordered_json)
 	            	.transition()
 	                .delay(500)
 	                .duration(500)
 	                .attr("fill", function(team, i) {
 	                	var d = team.wins;
-	                	console.log(i + " " + d + " " + colors[d]);
+	                	total_wins += d;
+	                	//console.log(i + " " + d + " " + colors[d]);
 	                	return colors[d];
 	                	//return "rgb(" + Math.round(255-d*200.0/1) + "," + Math.round(255-d*200.0/1) + ",255)";
 	                });
+	            console.log(total_wins);
             });
             
 
