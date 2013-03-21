@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Simple D3 Square Heatmap</title>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        
+        <style type="text/css">
+                body {
+                    text-align: center; 
+                    color: #555555; 
+                    background-color: white;
+                    font-family: arial, helvetica, sans-serif;
+                    }
+
+                a:link  {color: darkgray; text-decoration: none}
+                a:visited {color: darkgray; text-decoration: none}
+                a:hover {color: silver; text-decoration: underline}
+ 				.y.axis line, .y.axis path {
+                    fill: none;
+                    stroke-width: 1.0;
+                    stroke: dimgrey;
+                    shape-rendering: crispEdges;
+                }
+
+                .y.axis text {
+                    fill: dimgrey;
+                }
+
+                // x axis
+                .xticks text {
+                    fill: dimgrey;
+                }
+                .highlight {
+                	color: silver; text-decoration: underline;
+                }
+        </style>
+    </head>
+    <body>
+        <h1></h1>
+        <p></p>
+        <div id="board"></div>
+        <div id="column_histogram"></div>
+
+        <script type="text/javascript" src="squares-heatmap.js"></script>
+        
+    </body>
+</html>
